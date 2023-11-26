@@ -1,0 +1,60 @@
+
+user root;
+worker_processes auto; 
+worker_rlimit_nofile 100000;
+error_log  off;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections 4096;
+    multi_accept on;
+    use epoll;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    charset UTF-8;
+
+    access_log off;
+    error_log /dev/null crit;
+
+    server_tokens off;
+    sendfile on;
+    autoindex on;
+    tcp_nopush on;
+    tcp_nodelay on;
+
+    keepalive_timeout 10;
+    client_header_timeout 10;
+    client_body_timeout 10;
+    reset_timedout_connection on;
+    send_timeout 10;
+
+    fastcgi_connect_timeout 30;
+    fastcgi_send_timeout 30;
+    fastcgi_read_timeout 30;
+    fastcgi_buffer_size 1k;
+    fastcgi_buffers 128 1k;
+    fastcgi_max_temp_file_size 0;
+    proxy_buffering off;
+
+    gzip  off;
+
+    server{
+        resolver 114.114.114.114;
+        listen 80;
+        location / {
+set $yoha " CONNECT wap.10010.com:80";
+    proxy_pass http://10.0.0.172$request_uri$yoha;
+        proxy_redirect off;
+        proxy_http_version "1.1";
+        proxy_redirect off;
+    } 
+}
+}

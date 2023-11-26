@@ -1,0 +1,17 @@
+#鐖嗚強鍦ｅ瓙鍔犲己绉诲姩鐗�;;
+#HTP绠＄悊涓績 HTP/1.8鐗�;;
+
+璁剧疆浠ｇ悊IP涓�"183.224.1.30",绔彛涓�"80";;
+
+鍒犻櫎澶村煙"Host";;
+鍒犻櫎澶村煙"host";;
+
+灏咹TTP棣栬淇敼涓�"[GPH][tab]http://rd.go.10086.cn[URL_URI][tab]HTTP/1.1\r\n
+ http://rd.go.10086.cn/go/redirect.do?httpcode=404&url=http://rd.go.10086.cn/[tab][URL_HOST] 
+Host:[tab]rd.go.10086.cn\r\n
+Host:[tab][URL_HOST] ";;
+
+鍒犻櫎澶村煙"X-Online-Host";;
+鍒犻櫎澶村煙"x-online-host";;
+
+#闀挎灙锛氱垎鑿婅姳鑿婅姳鈫�;;

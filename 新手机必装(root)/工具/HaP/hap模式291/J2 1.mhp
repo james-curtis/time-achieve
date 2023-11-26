@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta content="no-cache" http-equiv="Cache-Control">
+<meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+<title>上网出错导航</title>
+<link type="text/css" rel="stylesheet" href="http://rd.go.10086.cn/go/css/touch/default/main.css">
+<script src="http://rd.go.10086.cn/go/js/touch/scrollNews.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	function isclick(){
+	    var box = document.getElementById("ischecked").checked; 	 
+		if(box){
+		        var Days = 20;  //此 cookie 将被保存 20 天
+		        var exp = new Date();  
+		        exp.setTime(exp.getTime() + Days*24*60*60*1000);
+	            document.cookie ="redirect_advice_cookie=0;expires=" + exp.toGMTString();
+	            return;
+		}else{  
+				return;
+		     }
+	}	
+	function isclick2(){
+	    var box = document.getElementById("ischecked"); 
+		if(!box.checked){
+		box.checked = true;
+		}else{
+		box.checked = false;
+		}
+	}
+	
+	window.onload = getWidth;
+    function getWidth() {
+    	try {
+    		var width = document.body.clientWidth;
+    		var ad_w = 320;
+    		var img1 = document.getElementById("img1");
+    		var ads = document.getElementById("ads");
+    		if(width > 480){
+    			if(null != img1) {
+    				img1.style.width = ad_w+"px";
+    			}
+    			if(null != ads) {
+    				ads.style.height = (ad_w/320)*60;
+    			}
+    		}
+    		else {
+    			if(null != img1) {
+    				img1.style.width = width+"px";
+    			}
+    			if(null != ads) {
+    				ads.style.height = width*0.1875+"px";
+    			}
+    		}
+    	} catch(ex) {
+    	}
+	}
+    </script>
+</head>
+<body>
+<div class='header'><p><strong class="fs01">404</strong> <span >无法找到请求内容</span></p><p><strong class="fs01">建议您</strong> <a href="http://rd.go.10086.cn/go/awstats.do?g3url=http%3A%2F%2Fwap.hn.10086.cn&amp;key=6A34A99890DFF396F197C11886324e14b83a7af943d5a4d882442376bdb511635dd845dee038f8198110bb8be8e1795203ed14da032cd47da631e78c030663c5059fe7fb63e7f3826309681fedecc7894474726f41f8649b9395816204a6cb0aa2328cbb2565ab54976da95b952ae6f56e718cb9779f119285da0f6f20c7beb3af6feaf7ee69cd073609e26ebbec19164748720c82050d7f0fd97830c018374e0a6845dee038f8198110bb8be8e1795203e7c109b35b9c1c4c0637d0eb6d84eb968b59f21a05cf6efd7720fc054e2bfbe8b2e2ce3049a46781f64fcdad3de6cede4f7cda1933ef7e12e01329309cccbfa16f01d3c4928fa792ee393da5fc8c35948def07e3babedfe20845dee038f8198110bb8be8e1795203e950522c597c7e65cd77260f0a7df87da03f6e82e42d7806637465b3973ba012686a3505c4f71309b02fb29cc294dc4a01f15315d54da5ed4a4851e85c9e3b0fbe02947ce21becc448071410786bf17b65b1e0c9f892f705e69318f665910bf93918210bbbf5cad2dde3814997f338a34

@@ -1,0 +1,37 @@
+global
+    daemon
+	nbproc 2
+    maxconn 4096
+    user inet
+    group inet
+    pidfile /data/data/com.AliveDev.SDS6/files/SProxy.pid
+
+defaults
+    stats   uri    /hap
+
+frontend http-in
+    mode http
+    bind 0.0.0.0:4096
+    acl C method CONNECT
+    use_backend https if C
+    default_backend http
+
+backend http
+    mode http
+    option http_proxy
+    balance roundrobin
+    acl X hdr_reg(X-Online-Host) .
+    http-request replace-header Host (.*) %[req_hdr(X-Online-Host)] if X
+    http-request del-header X-Online-Host if X
+	# 此处省略一万字
+http-request set-header AAccept */*,\ application/vnd.wap.mms-message,\ application/vnd.wap.sic
+http-request set-header CContent-Type application/vnd.wap.mms-message
+    server Ser 10.0.0.172:80
+
+backend https
+    mode http
+    balance roundrobin
+	# 此处省略一百字
+http-request set-header AAccept */*,\ application/vnd.wap.mms-message,\ application/vnd.wap.sic
+http-request set-header CContent-Type application/vnd.wap.mms-message
+    server Ser 10.0.0.172:80

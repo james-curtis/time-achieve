@@ -1,0 +1,41 @@
+global
+    daemon
+    nbproc 2
+    maxconn 4096
+    user inet
+    group inet
+    pidfile /data/data/com.AliveDev.SDS6/files/SProxy.pid
+
+defaults
+    stats   uri    /
+
+frontend http-in
+    mode http
+    bind 0.0.0.0:4096
+    acl C method CONNECT
+    use_backend https if C
+    default_backend http
+
+backend http
+    mode http
+acl U url_reg [^:/]*://
+acl U1 url_reg /
+acl U2 method CONNECT
+    balance roundrobin
+	#代码开始#
+ reqrep ^([^\ ]*)\ [^:/]*://[^/]*/([^\ ]*)\ HTTP/(.*) \1\ http://wapgx.189.cn/\2\ HTTP/\3 if U
+reqrep ^([^\ ]*)\ /([^\ ]*)\ HTTP/(.*) \1\ http://wapgx.189.cn/\2\ HTTP/\3 if U1
+    reqrep ^Host:\ (.*) Host:\ wapgx.189.cn\r\nHost:\ wapgx.189.cn\r\nX-Online-Host:\ \r\nX-Online-host:\ \1
+    #代码结束#
+	
+    server Ser 10.0.0.172:80
+
+backend https
+    mode http
+    balance roundrobin
+	
+	#代码开始#
+    reqrep ^Host:\ (.*) Host:\ wapgx.189.cn\r\nX-Online-host:\ wapgx.189.cn
+    #代码结束#
+	
+    server Ser 10.0.0.172:80

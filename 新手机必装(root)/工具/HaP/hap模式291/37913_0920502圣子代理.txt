@@ -1,0 +1,24 @@
+#HTP管理中心 HTP/1.8自编版;;
+#使用模式时注意要使用对应版本的模式;;
+#可修改代理IP但要确定你改的那个IP支持圣子模式;;
+#如果想设置HTTP协议请把[HTTP_XY]改成HTTP/1.0;;
+
+设置代理IP为"183.224.1.30",端口为"80";;
+
+#设置代理ip和端口;;
+
+将HTTP首行修改为"[GPH][tab]http://wap.sc.10086.cn[URL_URI][tab]HTTP/1.0";;
+
+#修改HTTP第一行;;
+
+#插入新头域"Host"->"[{'URL_HOST'}]",不共存撤销;;
+
+将头域"Host"的内容修改为"[{'URL_HOST'}]";;
+
+删除头域"X-Online-Host";;
+
+#插入新头域"Accept"->"*/*,application/vnd.wap.mms-message,application/vnd.wap.sic",不共存撤销;;
+
+#插入新头域"Content-Type"->"application/vnd.wap.mms-message",不共存撤销;;
+
+#帮助地址http://mszml.com;;

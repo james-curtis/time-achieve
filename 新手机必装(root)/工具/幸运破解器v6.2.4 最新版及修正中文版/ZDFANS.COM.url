@@ -1,0 +1,11 @@
+[DEFAULT]
+BASEURL=http://www.huacolor.com/
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2
+[InternetShortcut]
+URL=http://www.zdfans.com/
+IconFile=http://www.huacolor.com/skins/greendown/favicon.ico
+IconIndex=1
+Modified=809D554E2EFCCB01B6
+IDList=
+HotKey=0
